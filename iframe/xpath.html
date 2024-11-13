@@ -11,7 +11,7 @@
     }
 
     body {
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       font-family: sans-serif;
       height: 120px;
@@ -20,10 +20,10 @@
       padding: 0 12px 12px 12px;
     }
 
-    textarea {
+    .x-path-css-selecter-tool textarea {
       background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #f0f0f0;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #f1f1f1;
       display: block;
       font-family: monospace;
       font-size: 13px;
@@ -35,8 +35,8 @@
       width: 100%;
     }
 
-    .title {
-      color: #808080;
+    .x-path-css-selecter-tool-title {
+      color: #aaaaaa;
       font-size: 13px;
       height: 30px;
       display: flex;
@@ -44,30 +44,30 @@
       text-transform: uppercase;
     }
 
-    .title svg {
+    .x-path-css-selecter-tool-title svg {
       margin-left: 6px;
       cursor: pointer;
     }
 
-    .title svg.select path {
+    .x-path-css-selecter-tool-title svg.select path {
       fill: #1296db;
     }
 
-    .title svg.not-select path {
-      fill: #808080;
+    .x-path-css-selecter-tool-title svg.not-select path {
+      fill: #909090;
     }
 
-    div.left,
-    div.right {
+    div.x-path-css-selecter-tool-left,
+    div.x-path-css-selecter-tool-right {
       display: flex;
       flex-direction: column;
     }
   </style>
 </head>
 
-<body>
-  <div class="left" style="width: 60%;">
-    <div class="title">查询
+<body class="x-path-css-selecter-tool">
+  <div class="x-path-css-selecter-tool-left" style="width: 60%;">
+    <div class="x-path-css-selecter-tool-title">查询
       <svg t="1731396979137" class="not-select" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="1488" width="12" height="12" id="selector">
         <path
@@ -77,8 +77,8 @@
     </div>
     <textarea id="query"></textarea>
   </div>
-  <div class="right" style="width: 39.5%; margin-left: 0.5%;">
-    <div class="title">结果 (<span id="node-count"></span>)</div>
+  <div class="x-path-css-selecter-tool-right" style="width: 39.5%; margin-left: 0.5%;">
+    <div class="x-path-css-selecter-tool-title">结果 (<span id="node-count"></span>)</div>
     <textarea id="results" readonly="readonly"></textarea>
   </div>
   <script type="text/javascript" src="xpath.js"></script>

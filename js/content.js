@@ -29,14 +29,14 @@ function throttle(func, delay) {
  */
 const highlight = (selectElems) => {
     selectElems.forEach((elem) => {
-        elem.classList.add('x-path-tool-highlight');
+        elem.classList.add('x-path-css-selecter-tool-highlight');
     });
 }
 
 const clear = () => {
-    const selectElems = Array.from(document.querySelectorAll('.x-path-tool-highlight'));
+    const selectElems = Array.from(document.querySelectorAll('.x-path-css-selecter-tool-highlight'));
     selectElems.forEach((elem) => {
-        elem.classList.remove('x-path-tool-highlight');
+        elem.classList.remove('x-path-css-selecter-tool-highlight');
     });
 }
 
@@ -200,7 +200,7 @@ class XPath {
     constructor() {
         const iFrame = document.createElement('iframe');
         iFrame.src = chrome.runtime.getURL('iframe/xpath.html');
-        iFrame.id = 'x-path-tool';
+        iFrame.id = 'x-path-css-selecter-tool';
         iFrame.classList.add('hidden');
         this._iFrame = iFrame;
 
