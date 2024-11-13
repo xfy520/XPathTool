@@ -1,0 +1,57 @@
+{
+    "manifest_version": 3,
+    "name": "XPathCssSelecter Tool",
+    "version": "1.0.0",
+    "description": "XPathCssSelecter Tool可轻松提取、编辑任何网页上的 XPath 查询",
+    "icons": {
+        "16": "assets/icons/16x16.png",
+        "32": "assets/icons/32x32.png",
+        "48": "assets/icons/48x48.png",
+        "64": "assets/icons/64x64.png",
+        "128": "assets/icons/128x128.png",
+        "256": "assets/icons/256x256.png"
+    },
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
+        "default_icon": {
+            "16": "assets/icons/16x16.png",
+            "32": "assets/icons/32x32.png",
+            "48": "assets/icons/48x48.png",
+            "64": "assets/icons/64x64.png",
+            "128": "assets/icons/128x128.png",
+            "256": "assets/icons/256x256.png"
+        },
+        "default_title": "XPath Tool"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "js/content.js"
+            ],
+            "css": [
+                "assets/style/content.css"
+            ],
+            "all_frames": true,
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "iframe/*"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ],
+    "content_security_policy": {}
+}
