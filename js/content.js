@@ -79,30 +79,30 @@ const evaluate = (query) => {
     const selectElems = [];
 
     try {
-        const xpathResult = document.evaluate(query, document, null, XPathResult.ANY_TYPE, null);
-        if (!xpathResult) {
+        const xpath = document.evaluate(query, document, null, XPathResult.ANY_TYPE, null);
+        if (!xpath) {
             return cssSelector(query);
         }
-        if (xpathResult.resultType === XPathResult.BOOLEAN_TYPE) {
-            value = xpathResult.booleanValue ? '1' : '0';
+        if (xpath.resultType === XPathResult.BOOLEAN_TYPE) {
+            value = xpath.booleanValue ? '1' : '0';
             count = 1;
-        } else if (xpathResult.resultType === XPathResult.NUMBER_TYPE) {
-            value = xpathResult.numberValue.toString();
+        } else if (xpath.resultType === XPathResult.NUMBER_TYPE) {
+            value = xpath.numberValue.toString();
             count = 1;
-        } else if (xpathResult.resultType === XPathResult.STRING_TYPE) {
-            value = xpathResult.stringValue;
+        } else if (xpath.resultType === XPathResult.STRING_TYPE) {
+            value = xpath.stringValue;
             count = 1;
-        } else if (xpathResult.resultType ===
+        } else if (xpath.resultType ===
             XPathResult.UNORDERED_NODE_ITERATOR_TYPE) {
-            for (var node = xpathResult.iterateNext(); node;
-                node = xpathResult.iterateNext()) {
+            for (var node = xpath.iterateNext(); node;
+                node = xpath.iterateNext()) {
                 if (node.nodeType === Node.ELEMENT_NODE) {
                     selectElems.push(node);
                 }
-                if (value) {
-                    value += '\n';
+                const text = node.textContent;
+                if (!!text) {
+                    value = `${value}${!!value ? '\n' : ''}${node.textContent}`;
                 }
-                value += node.textContent;
                 count++;
             }
         }
