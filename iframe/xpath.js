@@ -31,12 +31,12 @@ const notSelect = () => {
 
 
 function debounce(func, delay) {
-  let timeoutId;  // timeoutId 在 debounce 内部定义
+  let timeoutId;
 
   return function (...args) {
-    clearTimeout(timeoutId);  // 清除之前的计时器
+    clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      func.apply(this, args);  // 在 delay 时间后执行目标函数
+      func.apply(this, args);
     }, delay);
   };
 }

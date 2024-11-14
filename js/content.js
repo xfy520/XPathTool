@@ -123,7 +123,7 @@ const getElementXPath = function (el) {
 
     const getElementIndex = function (el) {
         const parent = el.parentNode;
-        const siblings = Array.from(parent.children); // 获取所有子元素节点
+        const siblings = Array.from(parent.children);
         let index = 1;
         for (let i = 0; i < siblings.length; i++) {
             if (siblings[i] === el) {
