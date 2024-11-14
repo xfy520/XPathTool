@@ -18,5 +18,5 @@ drive.runtime.onMessage.addListener((request, sender, cb) => {
 });
 
 drive.action.onClicked.addListener(({ id }) => {
-    drive.tabs.sendMessage(id, { type: 'action' }).catch((err) => { });
+    drive.tabs.sendMessage(id, { type: 'action' }).catch(() => { });
 });
