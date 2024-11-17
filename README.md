@@ -1,4 +1,4 @@
-# XPathCssSelecter Tool
+# XPath Tool
 
 1. 打开新标签并导航到任何网页(必须是http或者https开头的地址渲染的网页)
 
